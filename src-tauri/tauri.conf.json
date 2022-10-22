@@ -56,10 +56,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 700,
         "resizable": true,
         "title": "Glowsquid Launcher",
-        "width": 800
+        "width": 1100
       }
     ]
   }
