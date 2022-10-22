@@ -1,0 +1,23 @@
+{
+	"name": "glowsquid-new",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"tauri": "tauri"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-static": "^1.0.0-next.46",
+		"@sveltejs/kit": "next",
+		"@tauri-apps/cli": "^1.1.1",
+		"svelte": "^3.44.0",
+		"vite": "^3.1.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"sveltekit-i18n": "^2.2.2"
+	}
+}
