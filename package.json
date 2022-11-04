@@ -20,7 +20,9 @@
 	"type": "module",
 	"dependencies": {
 		"@carbon/colors": "^11.6.0",
+		"@yaireo/relative-time": "^1.0.2",
 		"carbon-icons-svelte": "^11.4.0",
+		"ramda": "^0.28.0",
 		"sveltekit-i18n": "^2.2.2"
 	}
 }

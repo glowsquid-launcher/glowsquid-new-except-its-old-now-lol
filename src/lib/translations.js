@@ -9,9 +9,9 @@ const config = ({
         },
         {
             locale: 'en',
-            key: 'home',
+            key: 'instances',
             routes: ['/'],
-            loader: async () => (await import('./translations/en/home.json')).default
+            loader: async () => (await import('./translations/en/instances.json')).default
         }
     ]
 })

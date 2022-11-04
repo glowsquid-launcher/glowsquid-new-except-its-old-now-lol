@@ -1,44 +1,54 @@
 <script>
    import { t } from '$lib/translations' 
-   import { ClickableTile, Column, Grid, Row } from 'carbon-components-svelte';
-   import Play from "carbon-icons-svelte/lib/Play.svelte";
-   import WatsonHealth3DSoftware from "carbon-icons-svelte/lib/WatsonHealth3DSoftware.svelte";
-   import Cube from "carbon-icons-svelte/lib/Cube.svelte";
-   var lastInstance = "1.18.2";
+   import * as R from 'ramda';
+   import { Tile, Column, Grid, Row, ClickableTile } from 'carbon-components-svelte';
+   import InstanceCard from '../lib/components/InstanceCard.svelte';
+   let instances = [
+      {"name": "Multiblock Madness","lastPlayed": new Date(2022, 9, 29, 15, 32)},
+      {"name": "1.19.2","lastPlayed": new Date(2022, 9, 27, 12, 52)},
+      {"name": "FTB Stoneblock 3","lastPlayed": new Date(2022, 8, 15, 10, 26)},
+      {"name": "1.8.9","lastPlayed": new Date(2022, 8, 11, 10, 4)},
+      {"name": "Enigmatica 6","lastPlayed": new Date(2022, 7, 29, 9, 15)},
+      {"name": "Enigmatica 8","lastPlayed": new Date(2022, 7, 29, 9, 6)}
+   ];
+
+   let news = [
+      {"title": "Glowsquid Alpha!", "description": "We are proud to announce that Glowsquid has entered the alpha phase. We hope..."}
+   ]
+
+   let instance_sets = R.splitEvery(3, instances);
 </script>
 
-<h1 style="margin-bottom: 1rem;">{$t('home.welcome')}</h1>
-<Grid fullWidth noGutter>
-   <Row>
-      <Column>
-         <ClickableTile>
-            <h4><Play/> Quick Launch</h4>
-            <p>Launch last played instance: {lastInstance}</p>
-         </ClickableTile>
+<Grid condensed fullWidth style="height: 100%">
+   <Row style="height: 100%">
+      <Column lg={11}>
+         <Grid>
+            {#each instance_sets as set}
+               <Row style="padding-bottom: 1.5rem;">
+                  {#each set as instance}
+                     <Column><InstanceCard name={instance.name} lastPlayed={instance.lastPlayed}/></Column>
+                  {/each}
+               </Row>
+            {/each}
+         </Grid>
       </Column>
-      <Column>
-         <ClickableTile>
-            <h4><WatsonHealth3DSoftware/> New Instance</h4>
-            <p>Create a new instance</p>
-         </ClickableTile>
-      </Column>
-      <Column>
-         <ClickableTile style="margin-bottom: 1rem;">
-            <h4><Cube/> View Instances</h4>
-            <p>Manage your installed instances</p>
-         </ClickableTile>
+      <Column lg={5} style="width: 100%;">
+         <Tile style="width: 100%; height: 100%;">
+            <h3 style="padding-bottom: 1rem;">News</h3>
+            {#each news as item}
+               <ClickableTile light style="margin-bottom: 0.5rem;">
+                  <h5 style="padding-bottom: 0.5rem;">{item.title}</h5>
+                  <p>{item.description}</p>
+               </ClickableTile>
+            {/each}
+         </Tile>
       </Column>
    </Row>
 </Grid>
 
-<h2 style="margin-bottom: 1rem;">News</h2>
-<ClickableTile>
-   <h4>News goes here.</h4>
-   <p>What a new news article!</p>
-</ClickableTile>
-<ClickableTile style="margin-bottom: 1rem;">
-   <h4>Even more news</h4>
-   <p>Wow!</p>
-</ClickableTile>
+
+
+
+
 
 
