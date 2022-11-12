@@ -11,7 +11,9 @@ const localeTranslationLoaders = {
 
 const localeNamespaceLoaders = {
 	en: {
-		instances: () => import('./en/instances')
+		account: () => import('./en/account'),
+		instances: () => import('./en/instances'),
+		settings: () => import('./en/settings')
 	}
 }
 

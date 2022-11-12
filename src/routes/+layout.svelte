@@ -2,17 +2,14 @@
   import "carbon-components-svelte/css/g100.css";
   import {
     Header,
-    HeaderNav,
-    HeaderNavItem,
     Content,
     HeaderUtilities,
-    HeaderGlobalAction,
-    ClickableTile,
     SkipToContent,
     HeaderPanelLink,
     HeaderPanelLinks,
     HeaderAction,
     HeaderPanelDivider,
+    HeaderGlobalAction,
   } from "carbon-components-svelte";
   import LL from "$i18n/i18n-svelte";
   import Settings from "carbon-icons-svelte/lib/Settings.svelte";
@@ -33,8 +30,15 @@
   </svelte:fragment>
 
   <HeaderUtilities>
-    <HeaderGlobalAction aria-label="add instance" icon={NewTab} />
-    <HeaderAction aria-label="profiles" icon={User} bind:open={isAuthOpen}>
+    <HeaderGlobalAction icon={NewTab} />
+    <HeaderAction
+      aria-label={$LL.account.select()}
+      icon={User}
+      bind:open={isAuthOpen}
+      text={$authState.selectedAccount !== null
+        ? $authState.selectedAccount.username
+        : $LL.account.noAccountSelected()}
+    >
       <HeaderPanelLinks>
         {#each $authState.accounts as account, idx}
           <HeaderPanelLink
@@ -44,17 +48,22 @@
             }}
           >
             <p class="flex flex-row items-center gap-3">
-              <img src={account.icon} alt="Avatar for {account.username}" />
+              <img
+                src={account.icon}
+                alt={$LL.account.avatarFor(account.username)}
+              />
               {account.username}
             </p>
           </HeaderPanelLink>
         {/each}
         <HeaderPanelDivider />
-        <HeaderPanelLink on:click={toggleModal}>Add account</HeaderPanelLink>
-        <HeaderPanelLink>Account settings</HeaderPanelLink>
+        <HeaderPanelLink on:click={toggleModal}>
+          {$LL.account.add()}
+        </HeaderPanelLink>
+        <HeaderPanelLink>{$LL.account.settings()}</HeaderPanelLink>
       </HeaderPanelLinks>
     </HeaderAction>
-    <HeaderGlobalAction aria-label="settings" icon={Settings} />
+    <HeaderAction text={$LL.settings.name()} icon={Settings} />
   </HeaderUtilities>
 </Header>
 

@@ -7,12 +7,16 @@ import { loadedFormatters, loadedLocales, locales } from './i18n-util'
 
 import en from './en'
 
+import en_account from './en/account'
 import en_instances from './en/instances'
+import en_settings from './en/settings'
 
 const localeTranslations = {
 	en: {
 		...en,
-		instances: en_instances
+		account: en_account,
+		instances: en_instances,
+		settings: en_settings
 	},
 }
 

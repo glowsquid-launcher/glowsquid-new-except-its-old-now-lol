@@ -12,7 +12,9 @@ export type Translation = RootTranslation & DisallowNamespaces
 
 export type Translations = RootTranslation &
 {
-	instances: NamespaceInstancesTranslation
+	account: NamespaceAccountTranslation,
+	instances: NamespaceInstancesTranslation,
+	settings: NamespaceSettingsTranslation
 }
 
 type RootTranslation = {
@@ -20,6 +22,30 @@ type RootTranslation = {
 	 * G​l​o​w​s​q​u​i​d​ ​L​a​u​n​c​h​e​r
 	 */
 	title: string
+}
+
+export type NamespaceAccountTranslation = {
+	/**
+	 * N​o​b​o​d​y
+	 */
+	noAccountSelected: string
+	/**
+	 * S​e​l​e​c​t​ ​A​c​c​o​u​n​t
+	 */
+	select: string
+	/**
+	 * A​v​a​t​a​r​ ​f​o​r​ ​{​0​}
+	 * @param {string} 0
+	 */
+	avatarFor: RequiredParams<'0'>
+	/**
+	 * A​d​d​ ​A​c​c​o​u​n​t
+	 */
+	add: string
+	/**
+	 * A​c​c​o​u​n​t​ ​S​e​t​t​i​n​g​s
+	 */
+	settings: string
 }
 
 export type NamespaceInstancesTranslation = {
@@ -36,17 +62,42 @@ export type NamespaceInstancesTranslation = {
 	 * S​e​t​t​i​n​g​s
 	 */
 	settings: string
+	/**
+	 * A​d​d​ ​I​n​s​t​a​n​c​e
+	 */
+	add: string
+}
+
+export type NamespaceSettingsTranslation = {
+	/**
+	 * S​e​t​t​i​n​g​s
+	 */
+	name: string
 }
 
 export type Namespaces =
+	| 'account'
 	| 'instances'
+	| 'settings'
 
 type DisallowNamespaces = {
+	/**
+	 * reserved for 'account'-namespace\
+	 * you need to use the `./account/index.ts` file instead
+	 */
+	account?: "[typesafe-i18n] reserved for 'account'-namespace. You need to use the `./account/index.ts` file instead."
+
 	/**
 	 * reserved for 'instances'-namespace\
 	 * you need to use the `./instances/index.ts` file instead
 	 */
 	instances?: "[typesafe-i18n] reserved for 'instances'-namespace. You need to use the `./instances/index.ts` file instead."
+
+	/**
+	 * reserved for 'settings'-namespace\
+	 * you need to use the `./settings/index.ts` file instead
+	 */
+	settings?: "[typesafe-i18n] reserved for 'settings'-namespace. You need to use the `./settings/index.ts` file instead."
 }
 
 export type TranslationFunctions = {
@@ -54,6 +105,28 @@ export type TranslationFunctions = {
 	 * Glowsquid Launcher
 	 */
 	title: () => LocalizedString
+	account: {
+		/**
+		 * Nobody
+		 */
+		noAccountSelected: () => LocalizedString
+		/**
+		 * Select Account
+		 */
+		select: () => LocalizedString
+		/**
+		 * Avatar for {0}
+		 */
+		avatarFor: (arg0: string) => LocalizedString
+		/**
+		 * Add Account
+		 */
+		add: () => LocalizedString
+		/**
+		 * Account Settings
+		 */
+		settings: () => LocalizedString
+	}
 	instances: {
 		/**
 		 * Last played {0}
@@ -67,6 +140,16 @@ export type TranslationFunctions = {
 		 * Settings
 		 */
 		settings: () => LocalizedString
+		/**
+		 * Add Instance
+		 */
+		add: () => LocalizedString
+	}
+	settings: {
+		/**
+		 * Settings
+		 */
+		name: () => LocalizedString
 	}
 }
 
