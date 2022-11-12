@@ -1,21 +1,27 @@
-<script>
-    import {Button, Tile} from 'carbon-components-svelte'
-    import Settings from 'carbon-icons-svelte/lib/Settings.svelte';
-    import Play from 'carbon-icons-svelte/lib/Play.svelte';
-    import RelativeTime from '@yaireo/relative-time';
-    import { t } from '$lib/translations' 
+<script lang="ts">
+  import { Button, Tile } from "carbon-components-svelte";
+  import Settings from "carbon-icons-svelte/lib/Settings.svelte";
+  import Play from "carbon-icons-svelte/lib/Play.svelte";
+  import LL from "$i18n/i18n-svelte";
+  import { getRelativeTime } from "$lib/time";
 
-    const rt = new RelativeTime()
-    export let name;
-    export let lastPlayed;
-    let date = rt.from(lastPlayed);
+  export let name: string;
+  export let lastPlayed: Date;
+
+  const date = getRelativeTime(lastPlayed);
 </script>
 
 <Tile style="width: 15rem; margin-right: 0px;">
-    <h4 style="margin-bottom: 0.25rem;">{name}</h4>
-    <p style="margin-bottom: 0.5rem;"><em>{$t('instances.last_played', {date})}</em></p>
-    <div align="right">
-        <Button kind="ghost" iconDescription={$t('instances.play')} icon={Play}></Button>
-        <Button kind="ghost" iconDescription={$t('instances.settings')} icon={Settings}></Button>
-    </div>
+  <h4 style="margin-bottom: 0.25rem;">{name}</h4>
+  <p style="margin-bottom: 0.5rem;">
+    <em>{$LL.instances.lastPlayed(date)}</em>
+  </p>
+  <div>
+    <Button kind="ghost" iconDescription={$LL.instances.play()} icon={Play} />
+    <Button
+      kind="ghost"
+      iconDescription={$LL.instances.settings()}
+      icon={Settings}
+    />
+  </div>
 </Tile>
