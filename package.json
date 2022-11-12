@@ -20,11 +20,13 @@
     "svelte": "^3.53.1",
     "svelte-preprocess": "^4.10.7",
     "typescript": "^4.8.4",
+    "unocss": "^0.46.4",
     "vite": "^3.2.3"
   },
   "type": "module",
   "dependencies": {
     "@carbon/colors": "^11.8.0",
+    "@tauri-apps/api": "^1.2.0",
     "carbon-icons-svelte": "^11.4.0",
     "ramda": "^0.28.0",
     "tauri-plugin-copper-api": "https://gitpkg.now.sh/glowsquid-launcher/copper/tauri-plugin-copper?develop",

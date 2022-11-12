@@ -57,7 +57,7 @@
       {
         "fullscreen": false,
         "height": 700,
-        "resizable": false,
+        "resizable": true,
         "title": "Glowsquid Launcher",
         "width": 1300
       }

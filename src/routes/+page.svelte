@@ -29,33 +29,42 @@
   let instance_sets = R.splitEvery(3, instances);
 </script>
 
-<Grid condensed fullWidth style="height: 100%">
-  <Row style="height: 100%">
-    <Column lg={11}>
-      <Grid>
-        {#each instance_sets as set}
-          <Row style="padding-bottom: 1.5rem;">
-            {#each set as instance}
-              <Column
-                ><InstanceCard
-                  name={instance.name}
-                  lastPlayed={instance.lastPlayed}
-                /></Column
-              >
-            {/each}
-          </Row>
-        {/each}
-      </Grid>
+<Grid padding fullWidth class="h-full">
+  <Row class="h-full">
+    <Column>
+      {#each instance_sets as set}
+        <Row>
+          {#each set as instance}
+            <Column>
+              <InstanceCard
+                name={instance.name}
+                lastPlayed={instance.lastPlayed}
+              />
+            </Column>
+          {/each}
+        </Row>
+      {/each}
     </Column>
-    <Column lg={5} style="width: 100%;">
-      <Tile style="width: 100%; height: 100%;">
-        <h3 style="padding-bottom: 1rem;">News</h3>
-        {#each news as item}
-          <ClickableTile light style="margin-bottom: 0.5rem;">
-            <h5 style="padding-bottom: 0.5rem;">{item.title}</h5>
-            <p>{item.description}</p>
-          </ClickableTile>
-        {/each}
+    <Column lg={5}>
+      <Tile class="w-full h-full">
+        <Grid>
+          <Row>
+            <Column>
+              <h3>News</h3>
+            </Column>
+          </Row>
+
+          <Row>
+            <Column>
+              {#each news as item}
+                <ClickableTile light>
+                  <h5>{item.title}</h5>
+                  <p>{item.description}</p>
+                </ClickableTile>
+              {/each}
+            </Column>
+          </Row>
+        </Grid>
       </Tile>
     </Column>
   </Row>
