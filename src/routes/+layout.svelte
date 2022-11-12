@@ -21,6 +21,7 @@
 
   import { authState, selectAccount, toggleModal } from "$lib/auth";
   import AddAccountModal from "$lib/components/modals/AddAccountModal.svelte";
+  import { Account } from "carbon-icons-svelte";
   let isAuthOpen = false;
 </script>
 
@@ -40,11 +41,17 @@
             on:click={() => {
               selectAccount(idx);
               isAuthOpen = false;
-            }}>{account.username}</HeaderPanelLink
+            }}
           >
+            <p class="flex flex-row items-center gap-3">
+              <img src={account.icon} alt="Avatar for {account.username}" />
+              {account.username}
+            </p>
+          </HeaderPanelLink>
         {/each}
         <HeaderPanelDivider />
         <HeaderPanelLink on:click={toggleModal}>Add account</HeaderPanelLink>
+        <HeaderPanelLink>Account settings</HeaderPanelLink>
       </HeaderPanelLinks>
     </HeaderAction>
     <HeaderGlobalAction aria-label="settings" icon={Settings} />

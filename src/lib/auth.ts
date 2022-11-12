@@ -5,14 +5,14 @@ import type { AuthData } from "tauri-plugin-copper-api";
  * Do NOT use this store directly. Use the `auth` store instead unless absolutely necessary.
  */
 export const internalAuthState = writable({
-    accounts: [] as AuthData[],
+    authAccs: [] as AuthData[],
     selectedAccountIdx: null as number | null,
     modalOpen: false,
 })
 
 export const addAccount = (authData: AuthData) => internalAuthState.update(state => ({
     ...state,
-    accounts: [...state.accounts, authData],
+    authAccs: [...state.authAccs, authData],
 }))
 
 export const selectAccount = (idx: number) => internalAuthState.update(state => ({
@@ -22,7 +22,7 @@ export const selectAccount = (idx: number) => internalAuthState.update(state => 
 
 export const deleteAccount = (idx: number) => internalAuthState.update(state => ({
     ...state,
-    accounts: state.accounts.filter((_, i) => i !== idx),
+    authAccs: state.authAccs.filter((_, i) => i !== idx),
     selectedAccountIdx: state.selectedAccountIdx === idx ? null : state.selectedAccountIdx,
 }))
 
@@ -35,6 +35,12 @@ export const authState = derived(
     internalAuthState,
     $state => ({
         ...$state,
-        selectedAccount: $state.selectedAccountIdx === null ? null : $state.accounts[$state.selectedAccountIdx],
+        accounts: $state.authAccs.map(acc => {
+            return {
+                ...acc,
+                icon: `https://crafthead.net/avatar/${acc.uuid}/16`,
+            }
+        }),
+        selectedAccount: $state.selectedAccountIdx === null ? null : $state.authAccs[$state.selectedAccountIdx],
     })
 )

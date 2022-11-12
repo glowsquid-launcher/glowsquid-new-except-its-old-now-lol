@@ -59,8 +59,8 @@
       {:then code}
         <Grid>
           <Row class="items-center">
-            <Column>
-              <p>
+            <Column class="flex-shrink">
+              <p class="important-pr-0">
                 Lets start! Click on Start the process and copy {code.userCode}.
                 Paste this code at
                 <a
