@@ -45,7 +45,66 @@ export type NamespaceAccountTranslation = {
 	/**
 	 * A​c​c​o​u​n​t​ ​S​e​t​t​i​n​g​s
 	 */
-	settings: string
+	management: string
+	modal: {
+		/**
+		 * A​c​c​o​u​n​t​s
+		 */
+		label: string
+		/**
+		 * A​d​d​ ​A​c​c​o​u​n​t
+		 */
+		title: string
+		/**
+		 * G​e​t​t​i​n​g​ ​c​o​d​e​.​.​.
+		 */
+		gettingCode: string
+		/**
+		 * L​e​t​s​ ​s​t​a​r​t​!​ ​C​l​i​c​k​ ​o​n​ ​t​h​e​ ​b​u​t​t​o​n​ ​t​o​ ​t​h​e​ ​r​i​g​h​t​.​ ​P​a​s​t​e​ ​{​0​}​ ​a​t
+		 * @param {string} 0
+		 */
+		start: RequiredParams<'0'>
+		/**
+		 * c​o​p​y​ ​c​o​d​e​ ​a​n​d​ ​o​p​e​n​ ​i​n​ ​b​r​o​w​s​e​r​,​ ​a​n​d​ ​s​t​a​r​t​ ​p​r​o​c​e​s​s​.
+		 */
+		startProcess: string
+		steps: {
+			'0': {
+				/**
+				 * S​t​a​r​t​e​d​ ​p​r​o​c​e​s​s
+				 */
+				label: string
+				/**
+				 * Y​o​u​ ​h​a​v​e​ ​s​t​a​r​t​e​d​ ​t​h​e​ ​p​r​o​c​e​s​s​ ​o​f​ ​a​d​d​i​n​g​ ​a​n​ ​a​c​c​o​u​n​t
+				 */
+				description: string
+			}
+			'1': {
+				/**
+				 * R​e​c​i​e​v​e​d​ ​a​c​c​e​s​s​ ​t​o​k​e​n
+				 */
+				label: string
+				/**
+				 * G​l​o​w​s​q​u​i​d​ ​h​a​s​ ​r​e​c​i​e​v​e​d​ ​t​h​e​ ​a​c​c​e​s​s​ ​t​o​k​e​n​ ​f​r​o​m​ ​M​i​c​r​o​s​o​f​t
+				 */
+				description: string
+			}
+			'2': {
+				/**
+				 * R​e​c​i​e​v​e​d​ ​a​c​c​o​u​n​t​ ​d​a​t​a
+				 */
+				label: string
+				/**
+				 * G​l​o​w​s​q​u​i​d​ ​h​a​s​ ​r​e​c​i​e​v​e​d​ ​t​h​e​ ​a​c​c​o​u​n​t​ ​d​a​t​a​ ​f​r​o​m​ ​M​i​c​r​o​s​o​f​t
+				 */
+				description: string
+			}
+		}
+		/**
+		 * C​a​n​c​e​l
+		 */
+		cancel: string
+	}
 }
 
 export type NamespaceInstancesTranslation = {
@@ -125,7 +184,65 @@ export type TranslationFunctions = {
 		/**
 		 * Account Settings
 		 */
-		settings: () => LocalizedString
+		management: () => LocalizedString
+		modal: {
+			/**
+			 * Accounts
+			 */
+			label: () => LocalizedString
+			/**
+			 * Add Account
+			 */
+			title: () => LocalizedString
+			/**
+			 * Getting code...
+			 */
+			gettingCode: () => LocalizedString
+			/**
+			 * Lets start! Click on the button to the right. Paste {0} at
+			 */
+			start: (arg0: string) => LocalizedString
+			/**
+			 * copy code and open in browser, and start process.
+			 */
+			startProcess: () => LocalizedString
+			steps: {
+				'0': {
+					/**
+					 * Started process
+					 */
+					label: () => LocalizedString
+					/**
+					 * You have started the process of adding an account
+					 */
+					description: () => LocalizedString
+				}
+				'1': {
+					/**
+					 * Recieved access token
+					 */
+					label: () => LocalizedString
+					/**
+					 * Glowsquid has recieved the access token from Microsoft
+					 */
+					description: () => LocalizedString
+				}
+				'2': {
+					/**
+					 * Recieved account data
+					 */
+					label: () => LocalizedString
+					/**
+					 * Glowsquid has recieved the account data from Microsoft
+					 */
+					description: () => LocalizedString
+				}
+			}
+			/**
+			 * Cancel
+			 */
+			cancel: () => LocalizedString
+		}
 	}
 	instances: {
 		/**

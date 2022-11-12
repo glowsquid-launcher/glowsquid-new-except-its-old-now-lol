@@ -10,8 +10,9 @@
     Column,
     ProgressIndicator,
     ProgressStep,
+    Modal,
   } from "carbon-components-svelte";
-
+  import { LL } from "$i18n/i18n-svelte";
   import {
     authState,
     internalAuthState,
@@ -26,6 +27,7 @@
   } from "tauri-plugin-copper-api";
   import { open } from "@tauri-apps/api/shell";
   import { writeText } from "@tauri-apps/api/clipboard";
+  import { Account } from "carbon-icons-svelte";
 
   let currentProgressStep = 0;
 
@@ -51,18 +53,20 @@
 </script>
 
 <ComposedModal bind:open={$internalAuthState.modalOpen}>
-  <ModalHeader label="Accounts" title="Add account" />
+  <ModalHeader
+    label={$LL.account.modal.label()}
+    title={$LL.account.modal.title()}
+  />
   <ModalBody class="h-full">
     {#if $authState.modalOpen}
       {#await getAuthenticationInfo()}
-        <p>fetching device code, please wait</p>
+        <p>{$LL.account.modal.gettingCode()}</p>
       {:then code}
         <Grid>
           <Row class="items-center">
             <Column class="flex-shrink">
               <p class="important-pr-0">
-                Lets start! Click on Start the process and copy {code.userCode}.
-                Paste this code at
+                {$LL.account.modal.start(code.userCode)}
                 <a
                   href={code.verificationUri}
                   target="__blank"
@@ -78,7 +82,7 @@
                 on:click={() => openInBrowser(code)}
                 disabled={currentProgressStep >= 1}
               >
-                Start the process
+                {$LL.account.modal.startProcess()}
               </Button>
             </Column>
             <Column>
@@ -89,18 +93,18 @@
               >
                 <ProgressStep
                   complete={currentProgressStep >= 1}
-                  label="Started process"
-                  description="You have started the process of adding an account"
+                  label={$LL.account.modal.steps[0].label()}
+                  description={$LL.account.modal.steps[0].description()}
                 />
                 <ProgressStep
                   complete={currentProgressStep >= 2}
-                  label="Recieved access token"
-                  description="Glowsquid has recieved the access token from Microsoft"
+                  label={$LL.account.modal.steps[1].label()}
+                  description={$LL.account.modal.steps[1].description()}
                 />
                 <ProgressStep
                   complete={currentProgressStep >= 3}
-                  label="Recieved account data"
-                  description="Glowsquid has recieved the account data from Microsoft"
+                  label={$LL.account.modal.steps[2].label()}
+                  description={$LL.account.modal.steps[2].description()}
                 />
               </ProgressIndicator>
             </Column>
@@ -110,8 +114,12 @@
     {/if}
   </ModalBody>
   <ModalFooter>
-    <Button kind="secondary" on:click={toggleModal} aria-label="Cancel">
-      Cancel
+    <Button
+      kind="secondary"
+      on:click={toggleModal}
+      aria-label={$LL.account.modal.cancel()}
+    >
+      {$LL.account.modal.cancel()}
     </Button>
   </ModalFooter>
 </ComposedModal>

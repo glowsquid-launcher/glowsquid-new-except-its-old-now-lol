@@ -60,7 +60,7 @@
         <HeaderPanelLink on:click={toggleModal}>
           {$LL.account.add()}
         </HeaderPanelLink>
-        <HeaderPanelLink>{$LL.account.settings()}</HeaderPanelLink>
+        <HeaderPanelLink>{$LL.account.management()}</HeaderPanelLink>
       </HeaderPanelLinks>
     </HeaderAction>
     <HeaderAction text={$LL.settings.name()} icon={Settings} />
