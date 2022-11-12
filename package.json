@@ -11,24 +11,23 @@
     "typesafe-i18n": "typesafe-i18n"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-static": "^1.0.0-next.46",
-    "@sveltejs/kit": "next",
-    "@tauri-apps/cli": "^1.1.1",
+    "@sveltejs/kit": "^1.0.0-next.544",
+    "@tauri-apps/cli": "^1.2.0",
     "@types/ramda": "^0.28.20",
     "carbon-components-svelte": "^0.70.12",
     "npm-run-all": "^4.1.5",
-    "svelte": "^3.44.0",
+    "svelte": "^3.53.1",
     "svelte-preprocess": "^4.10.7",
     "typescript": "^4.8.4",
-    "vite": "^3.1.0"
+    "vite": "^3.2.3"
   },
   "type": "module",
   "dependencies": {
-    "@carbon/colors": "^11.6.0",
+    "@carbon/colors": "^11.8.0",
     "carbon-icons-svelte": "^11.4.0",
     "ramda": "^0.28.0",
-    "sveltekit-i18n": "^2.2.2",
+    "tauri-plugin-copper-api": "https://gitpkg.now.sh/glowsquid-launcher/copper/tauri-plugin-copper?develop",
     "typesafe-i18n": "^5.16.3"
   }
 }

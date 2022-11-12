@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "i18n",
         "frontend",
-        "nix"
+        "nix",
+        "backend"
     ]
 }
