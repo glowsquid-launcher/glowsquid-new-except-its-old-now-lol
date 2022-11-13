@@ -1,5 +1,5 @@
 <script context="module">
-  export const currentIdx = writable(1);
+  export const currentIdx = writable(0);
   export const searchQuery = writable("");
 </script>
 
@@ -21,12 +21,9 @@
     // set route based on currentIdx
     switch ($currentIdx) {
       case 0:
-        goto("/browse/mods");
-        break;
-      case 1:
         goto("/browse/modpacks");
         break;
-      case 2:
+      case 1:
         goto("/browse/resourcePacks");
         break;
     }
@@ -37,12 +34,11 @@
   <Column class="important-pa-0">
     <Column class="flex flex-row">
       <Search placeholder="Search for modpacks" bind:value={$searchQuery} />
-      <!-- TODO: figure out how 2 dropdown with a button -->
+      <!-- TODO: make a filter modal -->
       <Button kind="secondary" icon={Filter} iconDescription="Filter" />
     </Column>
     <Column>
       <ContentSwitcher bind:selectedIndex={$currentIdx}>
-        <Switch text="Mods" />
         <Switch text="Modpacks" />
         <Switch text="Resource packs" />
       </ContentSwitcher>
