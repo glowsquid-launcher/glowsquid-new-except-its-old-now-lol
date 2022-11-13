@@ -7,7 +7,7 @@
     "distDir": "../build"
   },
   "package": {
-    "productName": "glowsquid",
+    "productName": "Glowsquid",
     "version": "0.1.0"
   },
   "tauri": {
@@ -29,8 +29,8 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
-      "longDescription": "",
+      "identifier": "com.glowsquid.glowsquid",
+      "longDescription": "Glowsquid, the next-gen modded Minecraft launcher.",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
