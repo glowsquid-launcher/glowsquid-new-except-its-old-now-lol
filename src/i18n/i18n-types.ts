@@ -22,6 +22,14 @@ type RootTranslation = {
 	 * G​l​o​w​s​q​u​i​d​ ​L​a​u​n​c​h​e​r
 	 */
 	title: string
+	/**
+	 * H​o​m​e
+	 */
+	home: string
+	/**
+	 * B​r​o​w​s​e
+	 */
+	browse: string
 }
 
 export type NamespaceAccountTranslation = {
@@ -164,6 +172,14 @@ export type TranslationFunctions = {
 	 * Glowsquid Launcher
 	 */
 	title: () => LocalizedString
+	/**
+	 * Home
+	 */
+	home: () => LocalizedString
+	/**
+	 * Browse
+	 */
+	browse: () => LocalizedString
 	account: {
 		/**
 		 * Nobody

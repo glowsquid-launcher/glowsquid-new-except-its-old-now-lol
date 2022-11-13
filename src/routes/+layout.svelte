@@ -10,6 +10,8 @@
     HeaderAction,
     HeaderPanelDivider,
     HeaderGlobalAction,
+    HeaderNav,
+    HeaderNavItem,
   } from "carbon-components-svelte";
   import LL from "$i18n/i18n-svelte";
   import Settings from "carbon-icons-svelte/lib/Settings.svelte";
@@ -27,6 +29,11 @@
   <svelte:fragment slot="skip-to-content">
     <SkipToContent />
   </svelte:fragment>
+
+  <HeaderNav>
+    <HeaderNavItem href="/" text={$LL.home()} />
+    <HeaderNavItem href="/browse/modpacks" text={$LL.browse()} />
+  </HeaderNav>
 
   <HeaderUtilities>
     <HeaderGlobalAction icon={NewTab} />
