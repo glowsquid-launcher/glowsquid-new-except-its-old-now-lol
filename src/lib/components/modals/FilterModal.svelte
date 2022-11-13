@@ -43,7 +43,7 @@
           <Column>
             <Checkbox labelText="Include snapshots" bind:checked={inclSnaps} />
             <Select
-              bind:value={$modpackFilters.minecraftVersion.version}
+              bind:selected={$modpackFilters.minecraftVersion.version}
               label="Minecraft Version"
               helperText="Select the Minecraft version to filter by"
             >
