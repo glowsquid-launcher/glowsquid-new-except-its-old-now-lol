@@ -24,15 +24,32 @@
       description:
         "We are proud to announce that Glowsquid has entered the alpha phase. We hope...",
     },
+    {
+      title: "Glowsquid Alpha!",
+      description:
+        "We are proud to announce that Glowsquid has entered the alpha phase. We hope...",
+    },
+
+    {
+      title: "Glowsquid Alpha!",
+      description:
+        "We are proud to announce that Glowsquid has entered the alpha phase. We hope...",
+    },
+    {
+      title: "Glowsquid Alpha!",
+      description:
+        "We are proud to announce that Glowsquid has entered the alpha phase. We hope...",
+    },
   ];
 
-  let instance_sets = R.splitEvery(4, instances);
+  let instanceSets = R.splitEvery(4, instances);
+  let newsSets = R.splitEvery(2, news);
 </script>
 
 <Grid padding fullWidth class="h-full">
-  <Row class="h-full">
+  <Row>
     <Column>
-      {#each instance_sets as set}
+      {#each instanceSets as set}
         <Row>
           {#each set as instance}
             <Column>
@@ -45,27 +62,27 @@
         </Row>
       {/each}
     </Column>
-    <Column lg={5}>
-      <Tile class="w-full h-full">
-        <Grid>
-          <Row>
-            <Column>
-              <h3>News</h3>
-            </Column>
-          </Row>
+  </Row>
+  <Row>
+    <Column>
+      <Row>
+        <Column>
+          <h2>News</h2>
+        </Column>
+      </Row>
 
-          <Row>
+      {#each newsSets as set}
+        <Row>
+          {#each set as news}
             <Column>
-              {#each news as item}
-                <ClickableTile light>
-                  <h5>{item.title}</h5>
-                  <p>{item.description}</p>
-                </ClickableTile>
-              {/each}
+              <ClickableTile light>
+                <h4>{news.title}</h4>
+                <p>{news.description}</p>
+              </ClickableTile>
             </Column>
-          </Row>
-        </Grid>
-      </Tile>
+          {/each}
+        </Row>
+      {/each}
     </Column>
   </Row>
 </Grid>
