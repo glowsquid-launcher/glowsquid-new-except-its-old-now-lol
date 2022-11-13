@@ -109,7 +109,7 @@ export type NamespaceAccountTranslation = {
 
 export type NamespaceInstancesTranslation = {
 	/**
-	 * L​a​s​t​ ​p​l​a​y​e​d​ ​{​0​}
+	 * {​0​}
 	 * @param {string} 0
 	 */
 	lastPlayed: RequiredParams<'0'>
@@ -120,7 +120,7 @@ export type NamespaceInstancesTranslation = {
 	/**
 	 * S​e​t​t​i​n​g​s
 	 */
-	settings: string
+	options: string
 	/**
 	 * A​d​d​ ​I​n​s​t​a​n​c​e
 	 */
@@ -246,7 +246,7 @@ export type TranslationFunctions = {
 	}
 	instances: {
 		/**
-		 * Last played {0}
+		 * {0}
 		 */
 		lastPlayed: (arg0: string) => LocalizedString
 		/**
@@ -256,7 +256,7 @@ export type TranslationFunctions = {
 		/**
 		 * Settings
 		 */
-		settings: () => LocalizedString
+		options: () => LocalizedString
 		/**
 		 * Add Instance
 		 */

@@ -10,7 +10,6 @@
     Column,
     ProgressIndicator,
     ProgressStep,
-    Modal,
   } from "carbon-components-svelte";
   import { LL } from "$i18n/i18n-svelte";
   import {
@@ -18,6 +17,7 @@
     internalAuthState,
     toggleModal,
     addAccount,
+    selectAccount,
   } from "$lib/auth";
   import {
     getAuthenticationInfo,
@@ -27,7 +27,7 @@
   } from "tauri-plugin-copper-api";
   import { open } from "@tauri-apps/api/shell";
   import { writeText } from "@tauri-apps/api/clipboard";
-  import { Account } from "carbon-icons-svelte";
+  import { get } from "svelte/store";
 
   let currentProgressStep = 0;
 
@@ -45,7 +45,16 @@
 
     currentProgressStep = 3;
 
-    addAccount(data);
+    // if the user has already added this account, we don't want to add it again
+    if (!get(authState).accounts.some((a) => a.uuid === data.uuid)) {
+      addAccount(data);
+    }
+
+    // select the account we just added/already added
+    selectAccount(
+      get(authState).accounts.findIndex((a) => a.uuid === data.uuid)
+    );
+
     toggleModal();
 
     currentProgressStep = 0;

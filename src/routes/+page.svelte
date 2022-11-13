@@ -26,7 +26,7 @@
     },
   ];
 
-  let instance_sets = R.splitEvery(3, instances);
+  let instance_sets = R.splitEvery(4, instances);
 </script>
 
 <Grid padding fullWidth class="h-full">

@@ -18,7 +18,6 @@
 
   import { authState, selectAccount, toggleModal } from "$lib/auth";
   import AddAccountModal from "$lib/components/modals/AddAccountModal.svelte";
-  import { Account } from "carbon-icons-svelte";
   let isAuthOpen = false;
 </script>
 

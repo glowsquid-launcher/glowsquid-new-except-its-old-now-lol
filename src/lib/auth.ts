@@ -1,13 +1,28 @@
 import { derived, writable } from "svelte/store";
 import type { AuthData } from "tauri-plugin-copper-api";
 
+interface InternalAuthState {
+    authAccs: AuthData[];
+    selectedAccountIdx: number | null;
+    modalOpen: boolean;
+}
+
 /**
  * Do NOT use this store directly. Use the `auth` store instead unless absolutely necessary.
  */
-export const internalAuthState = writable({
-    authAccs: [] as AuthData[],
-    selectedAccountIdx: null as number | null,
-    modalOpen: false,
+export const internalAuthState = writable<InternalAuthState>(
+    // get initial state from localStorage or default to empty
+    JSON.parse(localStorage.getItem("authState") || "null") ||
+    {
+        authAccs: [] as AuthData[],
+        selectedAccountIdx: null as number | null,
+        modalOpen: false,
+    }
+)
+
+// sync with local storage
+internalAuthState.subscribe((state) => {
+    localStorage.setItem("authState", JSON.stringify(state))
 })
 
 export const addAccount = (authData: AuthData) => internalAuthState.update(state => ({
