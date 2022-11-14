@@ -4,5 +4,8 @@
         "frontend",
         "nix",
         "backend"
-    ]
+    ],
+    "svelte.plugin.svelte.compilerWarnings": {
+        "missing-declaration": "ignore",
+    },
 }

@@ -1,5 +1,5 @@
-import { derived, writable } from "svelte/store";
 import type { AuthData } from "tauri-plugin-copper-api";
+import type { GetInsideReadable } from "./types";
 
 interface InternalAuthState {
     authAccs: AuthData[];
@@ -59,3 +59,5 @@ export const authState = derived(
         selectedAccount: $state.selectedAccountIdx === null ? null : $state.authAccs[$state.selectedAccountIdx],
     })
 )
+
+export type AuthState = GetInsideReadable<typeof authState>
