@@ -29,6 +29,7 @@ const config: UserConfig = {
             'ComposedModal',
             'Select',
             'ProgressIndicator',
+            'ExpandableTile',
             'ProgressStep',
             'SelectItem',
             'MultiSelect',
@@ -52,7 +53,8 @@ const config: UserConfig = {
             'Switch',
             'Tile'
           ],
-          'carbon-icons-svelte': ['Filter']
+          'carbon-icons-svelte': ['Filter'],
+          '@square/svelte-store': ['asyncReadable', 'asyncWritable', 'asyncDerived']
         }
       ],
       dirs: ['src/lib/**', 'src/i18n'],

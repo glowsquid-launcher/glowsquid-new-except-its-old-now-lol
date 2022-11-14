@@ -54,26 +54,28 @@
 
 <FilterModal />
 
-<Grid padding noGutter>
-  <Column class="important-pa-0">
-    <Column class="flex flex-row">
-      <Search placeholder={searchPlaceholder} bind:value={$searchQuery} />
-      <Button
-        kind="secondary"
-        icon={Filter}
-        iconDescription="Filter"
-        on:click={() => isModalOpen.set(true)}
-      />
+<div transition:fade={{ duration: 300 }}>
+  <Grid padding noGutter>
+    <Column class="important-pa-0">
+      <Column class="flex flex-row">
+        <Search placeholder={searchPlaceholder} bind:value={$searchQuery} />
+        <Button
+          kind="secondary"
+          icon={Filter}
+          iconDescription="Filter"
+          on:click={() => isModalOpen.set(true)}
+        />
+      </Column>
+      <Column>
+        <ContentSwitcher bind:selectedIndex={$currentIdx}>
+          <Switch text="Modpacks" />
+          <Switch text="Resource packs" />
+        </ContentSwitcher>
+      </Column>
     </Column>
-    <Column>
-      <ContentSwitcher bind:selectedIndex={$currentIdx}>
-        <Switch text="Modpacks" />
-        <Switch text="Resource packs" />
-      </ContentSwitcher>
-    </Column>
-  </Column>
 
-  <Column>
-    <slot />
-  </Column>
-</Grid>
+    <Column>
+      <slot />
+    </Column>
+  </Grid>
+</div>

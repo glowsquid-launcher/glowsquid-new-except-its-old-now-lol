@@ -14,6 +14,7 @@
     "typesafe-i18n": "typesafe-i18n"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@sveltejs/adapter-static": "^1.0.0-next.46",
     "@sveltejs/kit": "^1.0.0-next.544",
     "@tauri-apps/cli": "^1.2.0",
@@ -38,6 +39,7 @@
   "type": "module",
   "dependencies": {
     "@carbon/colors": "^11.8.0",
+    "@square/svelte-store": "^1.0.11",
     "@tauri-apps/api": "^1.2.0",
     "carbon-icons-svelte": "^11.4.0",
     "ramda": "^0.28.0",

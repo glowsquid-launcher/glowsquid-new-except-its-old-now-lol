@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
+
   import { Settings, Play } from 'carbon-icons-svelte';
 
   export let name: string;
@@ -8,7 +10,7 @@
 </script>
 
 <Tile
-  class="h-full important-flex flex-col justify-between bg-gradient-to-tr from-zinc-800 to-neutral-800 important-shadow-md hover:shadow-xl transition "
+  class="h-full important-flex flex-col justify-between bg-gradient-to-tr from-zinc-700 to-neutral-700 important-shadow-md hover:shadow-xl transition "
 >
   <div class="mb-4">
     <h3>{name}</h3>
@@ -29,6 +31,7 @@
       class="important-pa-0"
       iconDescription={$LL.instances.options()}
       icon={Settings}
+      on:click={() => goto(`/instances/${name}`)}
     />
   </div>
 </Tile>

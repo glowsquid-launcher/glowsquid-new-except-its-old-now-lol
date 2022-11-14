@@ -8,7 +8,7 @@ interface InternalAuthState {
 }
 
 /**
- * Do NOT use this store directly. Use the `auth` store instead unless absolutely necessary.
+ * Do NOT use this store directly unless absolutely necessary. Use the `auth` store instead.
  */
 export const internalAuthState = writable<InternalAuthState>(
   // get initial state from localStorage or default to empty
