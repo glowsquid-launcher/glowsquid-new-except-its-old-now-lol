@@ -10,7 +10,7 @@
 </script>
 
 <Tile
-  class="h-full important-flex flex-col justify-between bg-gradient-to-tr from-zinc-700 to-neutral-700 important-shadow-md hover:shadow-xl transition "
+  class="h-full important-flex flex-col justify-between bg-gradient-to-tr from-zinc-900 to-neutral-900 important-shadow-md hover:shadow-xl transition "
 >
   <div class="mb-4">
     <h3>{name}</h3>
