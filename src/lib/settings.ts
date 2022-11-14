@@ -1,3 +1,3 @@
 export const internalSettings = writable({
-    darkMode: false,
-})
+  darkMode: false
+});

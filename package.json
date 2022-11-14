@@ -8,6 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "tauri": "tauri",
+    "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "eslint": "eslint .",
+    "format": "prettier --plugin-search-dir . --write .",
     "typesafe-i18n": "typesafe-i18n"
   },
   "devDependencies": {

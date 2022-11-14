@@ -1,13 +1,13 @@
-export const prerender = true
-export const ssr = false
+export const prerender = true;
+export const ssr = false;
 
-import type { LayoutLoad } from './$types'
-import { refreshLocales } from '$lib/i18n'
+import type { LayoutLoad } from './$types';
+import { refreshLocales } from '$lib/i18n';
 
 export const load: LayoutLoad = async ({ url }) => {
-    const { pathname } = url;
+  const { pathname } = url;
 
-    refreshLocales()
+  refreshLocales();
 
-    return { pathname };
-}
+  return { pathname };
+};

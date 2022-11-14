@@ -1,11 +1,6 @@
 {
-    "conventionalCommits.scopes": [
-        "i18n",
-        "frontend",
-        "nix",
-        "backend"
-    ],
-    "svelte.plugin.svelte.compilerWarnings": {
-        "missing-declaration": "ignore",
-    },
+  "conventionalCommits.scopes": ["i18n", "frontend", "nix", "backend"],
+  "svelte.plugin.svelte.compilerWarnings": {
+    "missing-declaration": "ignore"
+  }
 }

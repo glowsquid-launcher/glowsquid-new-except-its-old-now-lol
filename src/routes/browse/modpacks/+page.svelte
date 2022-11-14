@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { searchQuery, modpackFilters } from "../+layout.svelte";
+  import { searchQuery, modpackFilters } from '../+layout.svelte';
   // handle data fetching here
 </script>
 
