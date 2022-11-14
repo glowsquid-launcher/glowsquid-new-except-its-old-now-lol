@@ -37,18 +37,18 @@
   <Row>
     <Column>
       <Row>
-        <Column noGutter>
-          <h2>Instances</h2>
+        <Column>
+          <h2 class="text-5xl">Instances</h2>
         </Column>
       </Row>
       {#each instanceGroups as [group, instances]}
         {@const set = R.splitEvery(4, instances)}
         <Row>
           <Column noGutter>
-            <ExpandableTile expanded>
+            <ExpandableTile expanded class="important-py-0">
               <Row slot="above">
-                <Column class="important-py-0">
-                  <h3>{group}</h3>
+                <Column>
+                  <h3 class="text-4xl">{group}</h3>
                 </Column>
               </Row>
               <div slot="below">
