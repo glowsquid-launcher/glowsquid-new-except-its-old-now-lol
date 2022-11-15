@@ -6,7 +6,7 @@ export interface Instance {
         modpackVersion: string
         minecraftVersion: string
     }
-    group: string | null
+    group: string
     icon: string
     lastPlayed: Date
 }
@@ -18,7 +18,7 @@ function randomInstance(): Instance {
             modpackVersion: faker.system.semver(),
             minecraftVersion: faker.system.semver(),
         },
-        group: faker.helpers.arrayElement([null, "group1", "group2"]),
+        group: faker.helpers.arrayElement(["Other", "group1", "group2", "Favorites"]),
         icon: faker.image.imageUrl(),
         lastPlayed: faker.date.past(),
     }

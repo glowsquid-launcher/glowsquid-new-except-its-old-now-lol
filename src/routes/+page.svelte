@@ -5,32 +5,20 @@
 </script>
 
 <script lang="ts">
-  import * as R from 'ramda';
   import InstanceCard from '$components/InstanceCard.svelte';
-  import type { Instance } from '$lib/instances';
+  import { groupBy, prop, sort, splitEvery, toPairs } from 'ramda';
 
-  let news = [
-    {
-      title: 'Glowsquid Alpha!',
-      description: 'We are proud to announce that Glowsquid has entered the alpha phase. We hope...'
-    },
-    {
-      title: 'Glowsquid Alpha!',
-      description: 'We are proud to announce that Glowsquid has entered the alpha phase. We hope...'
-    },
+  let news = new Array(5).fill(0).map(() => ({
+    title: 'Glowsquid Alpha!',
+    description: 'We are proud to announce that Glowsquid has entered the alpha phase. We hope...'
+  }));
 
-    {
-      title: 'Glowsquid Alpha!',
-      description: 'We are proud to announce that Glowsquid has entered the alpha phase. We hope...'
-    },
-    {
-      title: 'Glowsquid Alpha!',
-      description: 'We are proud to announce that Glowsquid has entered the alpha phase. We hope...'
-    }
-  ];
+  $: instanceGroups = sort(
+    ([group], [group2]) => group.localeCompare(group2),
+    toPairs(groupBy(prop('group'), instances))
+  );
 
-  $: instanceGroups = R.toPairs(R.groupBy((inst) => inst.group ?? 'Other', instances));
-  let newsSets = R.splitEvery(2, news);
+  let newsSets = splitEvery(2, news);
 </script>
 
 <Grid padding fullWidth class="h-full">
@@ -42,7 +30,7 @@
         </Column>
       </Row>
       {#each instanceGroups as [group, instances]}
-        {@const set = R.splitEvery(4, instances)}
+        {@const set = splitEvery(4, instances)}
         <Row>
           <Column noGutter>
             <ExpandableTile expanded class="important-py-0">
